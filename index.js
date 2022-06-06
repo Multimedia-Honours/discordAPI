@@ -6,4 +6,8 @@ app.get('/', (req, res) => {
     res.send('Successful response.');
   });
 
+  app.get('/testEndpoints', (req, res) => {
+    res.send('Testing of this endpoint');
+  });
+
 app.listen(3000, () => console.log('Example app is listening on port 3000.'));
