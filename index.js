@@ -19,15 +19,15 @@ app.get('/', (req, res) => {
   });
 
 app.get('/sendDM', (req, res) => {
-  client.on('ready', ()=>{
+  client.on('ready', async()=>{
     try{
-        sendDM(req.query.message, req.query.id);
+        await sendDM(req.query.message, req.query.id);
       }catch(error){
           res.send('the error message: '+e);
       }
     });
   res.send('The message was sent through discord');
-  client.login(process.env.TOKEN);
 });
 
+client.login('OTc2NTQ5ODc4NjczMDcyMTI4.GSf6ES.aJzPnrV-ZE_8UI-zQQ8HslUup6OBZouTimqz8A');
 app.listen(3000, () => console.log('Example app is listening on port 3000.'));
