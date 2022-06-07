@@ -29,7 +29,7 @@ app.get('/sendDM', (req, res) => {
         }
     });
     try{
-        await sendDM(req.query.message, req.query.id);
+        sendDM(req.query.message, req.query.id);
         res.send('The message was sent through discord');
     }catch(e){
       res.send('discord encountered an problem: '+e);
