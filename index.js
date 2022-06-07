@@ -19,7 +19,6 @@ app.get('/', (req, res) => {
   });
 
 app.get('/sendDM', (req, res) => {
-  client.isReady
   client.on('ready', async()=>{
         try{
           await sendDM(req.query.message, req.query.id);
