@@ -29,5 +29,5 @@ app.get('/sendDM', (req, res) => {
   res.send('The message was sent through discord');
 });
 
-client.login('OTc2NTQ5ODc4NjczMDcyMTI4.GSf6ES.aJzPnrV-ZE_8UI-zQQ8HslUup6OBZouTimqz8A');
+client.login(env.process.TOKEN);
 app.listen(3000, () => console.log('Example app is listening on port 3000.'));
