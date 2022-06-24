@@ -19,6 +19,10 @@ async function sendDM(message, id){
   }
 }
 
+async function sendRyver(){
+  
+}
+
 app.get('/', (req, res) => {
     res.send('Successful response.');
   });
@@ -40,6 +44,43 @@ app.post('/sendDM', (req, res) => {
     }catch(e){
       res.send('discord encountered an problem: '+e);
     }
+});
+
+app.post('/sendMail', (req, res) => {
+
+  /*
+  expected request body:
+  {
+    toAddress:"",
+    text:""
+  }  
+  */
+
+  var transporter = nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+        user: 'u17074292@tuks.co.za',
+        pass: process.env.PASSWORD
+      }
+  });
+
+  var mailOptions = {
+      from: 'u17074292@tuks.co.za',
+      to: req.body.toAddress,
+      subject: 'Sending Email using Node.js',
+      text: req.body.text
+  };
+
+  transporter.sendMail(mailOptions, function(error, info){
+      if (error) {
+        console.log(error);
+        res.send({"statusCode":500, "body":error})
+      } else {
+        console.log('Email sent: ' + info.response);
+        res.send({"statusCode":200, "body":"message send to email"})
+      }
+    });
+
 });
 
 client.login(process.env.TOKEN);
