@@ -2,6 +2,7 @@ const express = require('express');
 const {Client, Intents} = require('discord.js')
 const client = new Client({intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MEMBERS, Intents.FLAGS.GUILD_BANS, Intents.FLAGS.GUILD_MESSAGES]});
 const bodyParser = require('body-parser');
+const nodemailer = require('nodemailer');
 require('dotenv').config();
 
 const app = express();
