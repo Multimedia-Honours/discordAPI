@@ -60,7 +60,7 @@ app.post('/sendMail', (req, res) => {
   var transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
-        user: 'u17074292@tuks.co.za',
+        user: 'rabbitholeretro@gmail.com',
         pass: process.env.PASSWORD
       }
   });
