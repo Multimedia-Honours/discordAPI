@@ -60,15 +60,15 @@ app.post('/sendMail', (req, res) => {
   var transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
-        user: 'rabbitholeretro@gmail.com',
+        user: 'rabbitholeMailSender@gmail.com',
         pass: process.env.PASSWORD
       }
   });
 
   var mailOptions = {
-      from: 'rabbitholeretro@gmail.com',
+      from: 'rabbitholeMailSender@gmail.com',
       to: req.body.toAddress,
-      subject: 'Sending Email using Node.js',
+      subject: 'This message has been forwarded from the Rabbithole app',
       text: req.body.text
   };
 
