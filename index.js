@@ -66,7 +66,7 @@ app.post('/sendMail', (req, res) => {
   });
 
   var mailOptions = {
-      from: 'u17074292@tuks.co.za',
+      from: 'rabbitholeretro@gmail.com',
       to: req.body.toAddress,
       subject: 'Sending Email using Node.js',
       text: req.body.text
