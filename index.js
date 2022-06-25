@@ -4,12 +4,13 @@ const client = new Client({intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_M
 const bodyParser = require('body-parser');
 const nodemailer = require('nodemailer');
 require('dotenv').config();
-
+var cors = require('cors');
 const app = express();
 
 //alows bodyparser as express middleware
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use(cors());
 
 async function sendDM(message, id){
   try{    
@@ -18,10 +19,6 @@ async function sendDM(message, id){
   }catch(e){
       console.log('Error message for sending DM: '+e);
   }
-}
-
-async function sendRyver(){
-  
 }
 
 app.get('/', (req, res) => {
