@@ -65,7 +65,7 @@ app.post('/sendMail', (req, res) => {
   var mailOptions = {
       from: 'rabbitholeMailSender@gmail.com',
       to: req.body.toAddress,
-      subject: 'This message has been forwarded from the Rabbithole app',
+      subject: `This message has been forwarded from ${req.body.subject}`,
       text: req.body.text
   };
 
